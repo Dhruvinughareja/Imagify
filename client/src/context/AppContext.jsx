@@ -13,7 +13,7 @@ const AppContextProvider = (props) => {
 
     const [credit, setCredit] = useState(false)
 
-    const backendUrl = 'https://imagify-backend-eight.vercel.app/'
+    const backendUrl = 'https://imagify-backend-eight.vercel.app'
     const navigate = useNavigate()
 
     const loadCreditsData = async () => {
