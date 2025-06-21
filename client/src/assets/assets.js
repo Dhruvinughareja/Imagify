@@ -7,8 +7,6 @@ import star_icon from './star_icon.svg'
 import rating_star from './rating_star.svg'
 import sample_img_1 from './sample_img_1.png'
 import sample_img_2 from './sample_img_2.png'
-import profile_img_1 from './profile_img_1.png'
-import profile_img_2 from './profile_img_2.png'
 import step_icon_1 from './step_icon_1.svg'
 import step_icon_2 from './step_icon_2.svg'
 import step_icon_3 from './step_icon_3.svg'
@@ -51,28 +49,4 @@ export const stepsData = [
       description: 'Instantly download your creation or share it with the world directly from our platform.',
       icon: step_icon_3,
     },
-  ];
-
-export const testimonialsData = [
-    {
-      name: "Sarah Johnson",
-      role: "Digital Artist",
-      image: profile_img_1,
-      stars: 5,
-      text: "This tool has revolutionized my creative process. The quality of generated images is incredible!"
-    },
-    {
-      name: "Mike Chen",
-      role: "Marketing Manager",
-      image: profile_img_2,
-      stars: 5,
-      text: "Perfect for creating unique visuals for our campaigns. Fast, reliable, and professional results."
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Content Creator",
-      image: profile_img_1,
-      stars: 5,
-      text: "I use this daily for my social media content. The AI understands exactly what I need!"
-    }
   ];
