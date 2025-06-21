@@ -10,7 +10,6 @@ export const generateImage = async (req, res) => {
   try {
 
     const { userId, prompt } = req.body
-    console.log("error coming 1")
 
     // Fetching User Details Using userId
     const user = await userModel.findById(userId)
@@ -19,15 +18,10 @@ export const generateImage = async (req, res) => {
       return res.json({ success: false, message: 'Missing Details' })
     }
 
-    // Checking User creditBalance
-    if (user.creditBalance === 0 || userModel.creditBalance < 0) {
-      return res.json({ success: false, message: 'No Credit Balance', creditBalance: user.creditBalance })
-    }
-
     // Creation of new multi/part formdata
     const formdata = new FormData()
     formdata.append('prompt', prompt)
-    console.log("error coming")
+
     // Calling Clipdrop API
     const { data } = await axios.post('https://clipdrop-api.co/text-to-image/v1', formdata, {
       headers: {
@@ -40,11 +34,8 @@ export const generateImage = async (req, res) => {
     const base64Image = Buffer.from(data, 'binary').toString('base64');
     const resultImage = `data:image/png;base64,${base64Image}`
 
-    // Deduction of user credit 
-    await userModel.findByIdAndUpdate(user._id, { creditBalance: user.creditBalance - 1 })
-
     // Sending Response
-    res.json({ success: true, message: "Background Removed", resultImage, creditBalance: user.creditBalance - 1 })
+    res.json({ success: true, message: "Image Generated Successfully", resultImage })
 
   } catch (error) {
     console.log(error.message)
